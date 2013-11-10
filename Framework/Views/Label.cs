@@ -10,8 +10,6 @@ namespace Sunfish.Views
 	public class Label : View
 	{
 
-		//private const string SupportedCharacters = ".,:;\"'!?-()#@$%&*+|/0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-
 		public string Text { get; private set; }
 
 		public Color TextColor;

@@ -267,10 +267,10 @@ namespace Sunfish.Views
 			return SunfishGame.PixelsWithDensity (pixels);
 		}
 
-		public void CenterOrigin()
-		{
-			Origin = new Vector2 (Width / 2f, Height / 2f);
-		}
+//		public void CenterOrigin()
+//		{
+//			Origin = new Vector2 (Width / 2f, Height / 2f);
+//		}
 
 		public Rectangle GetBoundingBox()
 		{
