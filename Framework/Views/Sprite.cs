@@ -5,7 +5,8 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Input.Touch;
 
-// A view based upon a texture
+// A view based upon a texture.  During a particular draw iteration, a Sprite draws a particular frame from the underlying
+// texture: see SpriteFraming.
 namespace Sunfish.Views
 {
 
