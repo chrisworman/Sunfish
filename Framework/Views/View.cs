@@ -8,6 +8,9 @@ using Sunfish.Views.Partitioning;
 
 namespace Sunfish.Views
 {
+	/// <summary>
+	/// An abstract entity that can be "viewed" or "drawn" on the graphics display.
+	/// </summary>
 	public abstract class View
 	{
 
