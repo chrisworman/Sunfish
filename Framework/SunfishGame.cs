@@ -86,15 +86,13 @@ namespace Sunfish
 			return newManager;
 		}
 
-//		protected override void LoadContent ()
-//		{
-//
-////			GameSong = Content.Load<SoundEffect> (Constants.AudioContentFolder + "LevelSong").CreateInstance ();
-////			GameSong.Volume = 0.3f;
-////			GameSong.IsLooped = true;
-////			MusicOn = false;
-//
-//		}
+		public void SetAndStartGameSong(string audioFileNameWithoutExtension, float volume = 1.0f)
+		{
+			GameSong = Content.Load<SoundEffect> (Constants.AudioContentFolder + audioFileNameWithoutExtension).CreateInstance ();
+			GameSong.Volume = volume;
+			GameSong.IsLooped = true;
+			MusicOn = true;
+		}
 
 		#region Abstract Methods
 

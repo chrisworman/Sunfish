@@ -58,59 +58,7 @@ namespace Sunfish
 			ChildViews.Draw (gameTime, graphics);
 			SunfishGame.ActiveSpriteBatch.End ();
 
-//			BeginClipping (new Rectangle (0, 0, 1000, 600));
-//			SunfishGame.ActiveSpriteBatch.Draw (LoadTexture ("Depth1"), new Vector2 (130, 130), null, null, null, 0f, null, null, SpriteEffects.None, 1f);
-//			EndClipping ();
-//			BeginClipping (new Rectangle (0, 0, 1000, 600));
-//			SunfishGame.ActiveSpriteBatch.Draw (LoadTexture ("DepthPoint5"), new Vector2 (90, 90), null, null, null, 0f, null, null, SpriteEffects.None, 0.5f);
-//			EndClipping ();
-//			BeginClipping (new Rectangle (0, 0, 1000, 600));
-//			SunfishGame.ActiveSpriteBatch.Draw (LoadTexture ("Depth0"), new Vector2 (50, 50), null, null, null, 0f, null, null, SpriteEffects.None, 0f);
-//			EndClipping ();
-
-//			BeginClipping (new Rectangle (100, 100, 100, 100));
-//			SunfishGame.ActiveSpriteBatch.Draw (LoadTexture ("PopupBackground"), new Vector2(50, 50), Color.White);
-//			SunfishGame.ActiveSpriteBatch.Draw (LoadTexture ("RetryButton"), new Vector2(90, 110), Color.White);
-//			EndClipping ();
-//
-//			BeginClipping (new Rectangle (500, 100, 100, 100));
-//			SunfishGame.ActiveSpriteBatch.Draw (LoadTexture ("PopupBackground"), new Vector2(400, 50), Color.White);
-//			SunfishGame.ActiveSpriteBatch.Draw (LoadTexture ("RetryButton"), new Vector2(490, 110), Color.White);
-//			EndClipping ();
-
-//			RasterizerState savedRasterizedState = SunfishGame.ActiveSpriteBatch.GraphicsDevice.RasterizerState;
-//			Rectangle savedScissorRectangle = SunfishGame.ActiveSpriteBatch.GraphicsDevice.ScissorRectangle;
-//			RasterizerState clipState = new RasterizerState() { ScissorTestEnable = true };
-//			SunfishGame.ActiveSpriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, null, null, clipState);
-//			SunfishGame.ActiveSpriteBatch.GraphicsDevice.ScissorRectangle = new Rectangle(100,100,100,100);
-//			SunfishGame.ActiveSpriteBatch.Draw (LoadTexture ("PopupBackground"), new Vector2(50, 50), Color.White);
-//			SunfishGame.ActiveSpriteBatch.GraphicsDevice.ScissorRectangle = savedScissorRectangle;
-//			SunfishGame.ActiveSpriteBatch.GraphicsDevice.RasterizerState = savedRasterizedState;
-//			SunfishGame.ActiveSpriteBatch.Draw (LoadTexture ("PopupBackground"), new Vector2(500, 50), Color.White);
-//			SunfishGame.ActiveSpriteBatch.End ();
 		}
-
-//		public void BeginClipping(Rectangle clippingRectangle)
-//		{
-//			//SavedScissorRectangle = SunfishGame.ActiveSpriteBatch.GraphicsDevice.ScissorRectangle;
-//			//SavedRasterizedState = SunfishGame.ActiveSpriteBatch.GraphicsDevice.RasterizerState;
-//			RasterizerState clippingState = new RasterizerState() { ScissorTestEnable = true };
-//			SunfishGame.ActiveSpriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, null, null, clippingState);
-//			SunfishGame.ActiveSpriteBatch.GraphicsDevice.ScissorRectangle = clippingRectangle;
-//		}
-//
-//		public void EndClipping()
-//		{
-//			SunfishGame.ActiveSpriteBatch.End ();
-//		}
-
-//		public void RestoreDefaultGraphicsDeviceState()
-//		{
-//			if (SavedRasterizedState != null) {
-//				SunfishGame.ActiveSpriteBatch.GraphicsDevice.ScissorRectangle = SavedScissorRectangle;
-//				SunfishGame.ActiveSpriteBatch.GraphicsDevice.RasterizerState = SavedRasterizedState;
-//			}
-//		}
 
 		public void AddChildView(Sunfish.Views.View childView)
 		{
@@ -152,10 +100,12 @@ namespace Sunfish
 			return ScreenContent.Load<SoundEffect> (Constants.AudioContentFolder + audioFileNameWithoutExtension).CreateInstance ();
 		}
 
-		public void PlaySoundEffect (string audioFileNameWithoutExtension)
+		public void PlaySoundEffect (string audioFileNameWithoutExtension, float volume = 1.0f)
 		{
 			if (SunfishGame.SoundEffectsOn) {
-				LoadSoundEffect (audioFileNameWithoutExtension).Play ();
+				SoundEffectInstance soundEffectToPlay = LoadSoundEffect (audioFileNameWithoutExtension);
+				soundEffectToPlay.Volume = volume;
+				soundEffectToPlay.Play ();
 			}
 		}
 
