@@ -49,7 +49,7 @@ namespace Sunfish.Views
 				int x = fontBoundaries [boundaryIndex++];
 				// Special case for ' ' (aka space)
 				if (boundaryIndex == 1) {
-					Rectangle spaceFrame = new Rectangle (0, 0, x - 1, fontHeight);
+					Rectangle spaceFrame = new Rectangle (0, 0, (int)(x * 1.5), fontHeight);
 					result.Add (' ', spaceFrame);
 				}
 				int width = fontBoundaries [boundaryIndex++];
