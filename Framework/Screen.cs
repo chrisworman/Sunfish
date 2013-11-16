@@ -9,15 +9,15 @@ namespace Sunfish
 	public abstract class Screen
 	{
 
-		public SunfishGame CurrentGame { get; set; }
+		public SunfishGame CurrentGame;
 
-		public Color BackgroundColor { get; set; }
+		public Color BackgroundColor;
 
 		public static Color DefaultBackgroundColor = Color.Black;
 
-		public Views.ScreenLayers ChildViews { get; set; }
+		public Views.ScreenLayers ChildViews;
 
-		public ContentManager ScreenContent { get; set; }
+		public ContentManager ScreenContent;
 
 		public Views.Container TopBar { get; private set; }
 
@@ -25,21 +25,36 @@ namespace Sunfish
 
 		public OnTransitionedOutDelegate OnTransitionedOut;
 
-		private Rectangle SavedScissorRectangle { get; set; }
+		//private Rectangle SavedScissorRectangle;
 
-		private RasterizerState SavedRasterizedState { get; set; }
+		//private RasterizerState SavedRasterizedState;
+
+		private Texture2D BackgroundTexture;
 
 		protected Screen (SunfishGame currentGame) :
 		this(currentGame, DefaultBackgroundColor)
 		{
 		}
 
-		protected Screen (SunfishGame currentGame, Color backgroundColor)
+		protected Screen (SunfishGame currentGame, Color backgroundColor) :
+		this (currentGame, backgroundColor, null)
+		{
+		}
+
+		protected Screen (SunfishGame currentGame, string backgroundTextureName) :
+		this (currentGame, Color.Black, backgroundTextureName)
+		{
+		}
+
+		protected Screen (SunfishGame currentGame, Color backgroundColor, string backgroundTextureName)
 		{
 			ScreenContent = currentGame.CreateContentManager ();
 			ChildViews = new Views.ScreenLayers ();
 			CurrentGame = currentGame;
 			BackgroundColor = backgroundColor;
+			if (!string.IsNullOrEmpty (backgroundTextureName)) {
+				BackgroundTexture = LoadTexture (backgroundTextureName);
+			}
 		}
 
 		public abstract void PopulateScreenViews ();
@@ -52,8 +67,16 @@ namespace Sunfish
 
 		public void Draw (GameTime gameTime, GraphicsDeviceManager graphics)
 		{
-			graphics.GraphicsDevice.Clear (BackgroundColor);
 
+			// Draw the background, which is either a Color or a Texture2D
+			graphics.GraphicsDevice.Clear (BackgroundColor);
+			if (BackgroundTexture != null) {
+				SunfishGame.ActiveSpriteBatch.Begin ();
+				SunfishGame.ActiveSpriteBatch.Draw (BackgroundTexture, new Vector2(0), Color.White);
+				SunfishGame.ActiveSpriteBatch.End ();
+			}
+
+			// Draw the child views of this screen
 			SunfishGame.ActiveSpriteBatch.Begin ();
 			ChildViews.Draw (gameTime, graphics);
 			SunfishGame.ActiveSpriteBatch.End ();
