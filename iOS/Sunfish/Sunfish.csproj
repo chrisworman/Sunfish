@@ -134,6 +134,9 @@
     <Compile Include="..\..\Framework\Views\Effects\BackAndForth.cs">
       <Link>Views\Effects\BackAndForth.cs</Link>
     </Compile>
+    <Compile Include="..\..\Framework\Views\Effects\TranslateBy.cs">
+      <Link>Views\Effects\TranslateBy.cs</Link>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\MonoGame-develop\ThirdParty\Lidgren.Network\Lidgren.Network.iOS.csproj">
