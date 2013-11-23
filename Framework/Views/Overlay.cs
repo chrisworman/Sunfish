@@ -26,7 +26,7 @@ namespace Sunfish.Views
 		}
 
 		private Overlay (Texture2D pixel) :
-		base(pixel, new Vector2(0,0), Constants.ViewLayer.Modal)
+		base(pixel, new Vector2(0,0), Constants.ViewLayer.ModalOverlay)
 		{
 		}
 

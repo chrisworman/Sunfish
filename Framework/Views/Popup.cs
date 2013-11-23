@@ -33,7 +33,7 @@ namespace Sunfish.Views
 
 			// Create an overlay to obscure the screen when this popup is showing
 			Overlay = Overlay.CreateTransparent ();
-			Overlay.Layer = Constants.ViewLayer.ModalOverlay;
+			//SunfishGame.ActiveScreen.AddChildView (Overlay);
 			AddChild (Overlay);
 
 			// Compute the position coordinates for the various states of this popup

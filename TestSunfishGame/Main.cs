@@ -22,7 +22,7 @@ namespace TestSunfishGame
 			app.SetStatusBarHidden (true, true);
 			var controller = UIApplication.SharedApplication.Windows[0].RootViewController;
 			if (controller != null) {
-				controller.SetNeedsStatusBarAppearanceUpdate ();
+				//controller.SetNeedsStatusBarAppearanceUpdate ();
 			}
 		}
 

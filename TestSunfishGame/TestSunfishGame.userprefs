@@ -1,17 +1,24 @@
 ﻿<Properties GitUserInfo="UsingGIT">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.IPad.7.0" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="../Framework/Views/Sprite.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="../../MonoGame-develop/MonoGame.Framework/Content/ContentManager.cs">
     <Files>
       <File FileName="../Framework/Views/View.cs" Line="1" Column="1" />
       <File FileName="../Framework/Views/Label.cs" Line="1" Column="1" />
       <File FileName="../Framework/Views/Font.cs" Line="1" Column="1" />
-      <File FileName="../Framework/Views/Sprite.cs" Line="63" Column="7" />
+      <File FileName="../Framework/Views/Sprite.cs" Line="63" Column="4" />
+      <File FileName="Main.cs" Line="25" Column="7" />
+      <File FileName="../../MonoGame-develop/MonoGame.Framework/Content/ContentManager.cs" Line="313" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
-          <Node name="Sunfish" expanded="True">
-            <Node name="Utilities" selected="True" />
+          <Node name="MonogameFramework" expanded="True" />
+          <Node name="TestSunfishGame" expanded="True">
+            <Node name="Content" expanded="True">
+              <Node name="Images" expanded="True">
+                <Node name="iPad" selected="True" />
+              </Node>
+            </Node>
           </Node>
         </State>
       </Pad>

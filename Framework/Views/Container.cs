@@ -78,24 +78,6 @@ namespace Sunfish.Views
 			ShouldExpandHeight = false;
 		}
 
-//		public override bool ConsumeGestures (GestureSamples gestureSamples)
-//		{
-//			return ChildViews.ConsumeGestures (gestureSamples);
-//		}
-
-//		public override void Update (GameTime gameTime)
-//		{
-//			base.Update (gameTime);
-//			ChildViews.Update (gameTime);
-//		}
-
-		public override void Draw (GameTime gameTime, GraphicsDeviceManager graphics)
-		{
-//			if (Visible) {
-//				ChildViews.Draw (gameTime, graphics);
-//			}
-		}
-
 		public void AddChild (View view)
 		{
 			AddChild (view, 0, 0);
@@ -104,6 +86,11 @@ namespace Sunfish.Views
 		public void AddChild (View view, int marginX, int marginY)
 		{
 			AddChild (view, Layout, marginX, marginY);
+		}
+
+		public override void Draw (GameTime gameTime, GraphicsDeviceManager graphics)
+		{
+			// Do nothing
 		}
 
 //		public virtual void RemoveChildren ()
@@ -131,7 +118,7 @@ namespace Sunfish.Views
 
 			view.SetParent (this);
 			ChildViews.Add (view);
-			SunfishGame.ActiveScreen.ChildViews.Add (view);
+			SunfishGame.ActiveScreen.AddChildView (view);
 
 			ExpandHeightIfNecessary (view);
 
