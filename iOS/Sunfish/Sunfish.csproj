@@ -131,7 +131,6 @@
     <Compile Include="..\..\Framework\Views\ScreenLayers.cs">
       <Link>Views\ScreenLayers.cs</Link>
     </Compile>
-    <Compile Include="Views\Effects\BackAndForth.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\MonoGame-develop\ThirdParty\Lidgren.Network\Lidgren.Network.iOS.csproj">
