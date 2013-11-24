@@ -44,7 +44,7 @@ namespace Sunfish.Views
 
 		}
 
-		public void Show ()
+		public virtual void Show ()
 		{
 			Overlay.Appear ();
 			Effects.TranslateTo translateToShownPosition = new Effects.TranslateTo (Position, ShowingPosition, TransitionMilliseconds);
@@ -53,7 +53,7 @@ namespace Sunfish.Views
 			Visible = true;
 		}
 
-		public void Hide ()
+		public virtual void Hide ()
 		{
 			Overlay.Disappear ();
 			Effects.TranslateTo translateToHiddenPosition = new Effects.TranslateTo (Position, HiddenPosition, TransitionMilliseconds);
