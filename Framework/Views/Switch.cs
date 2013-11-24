@@ -54,6 +54,15 @@ namespace Sunfish.Views {
 			return IsOn;
 		}
 
+		public void SetIsOn(bool isOn, bool callOnToggle = true)
+		{
+			IsOn = isOn;
+			this.Texture = IsOn ? OnTexture : OffTexture;
+			if (callOnToggle && OnToggle != null) {
+				OnToggle (this);
+			}
+		}
+
 	}
 }
 
