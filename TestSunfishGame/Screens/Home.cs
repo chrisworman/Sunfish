@@ -23,6 +23,12 @@ namespace TestSunfishGame.Screens
 		public override void PopulateScreenViews ()
 		{
 
+		}
+
+		#region "Paradox Test"
+
+		private void PopulateParadoxTestScreenViews()
+		{
 			int rows = 8;
 			int cols = 18;
 
@@ -62,16 +68,6 @@ namespace TestSunfishGame.Screens
 			Sprite dialog = new Sprite (LoadTexture ("Dialog"), Constants.ViewLayer.Layer3);
 			ViewPositioner.ScreenBottomCenter (dialog);
 			ChildViews.Add (dialog);
-
-//			Font testFont = new Font ("Helvetica40");
-//			Label testLabel = new Label ("This is a \"test\" sentence! 1234567890 & *", testFont, Color.Black, new Vector2(50f, 100f));
-//			testLabel.Layer = Constants.ViewLayer.Layer3;
-//			ChildViews.Add (testLabel);
-
-			//Texture2D explosion1Texture = LoadTexture ("Explosion1");
-			//ParticleSystem explosions = new ParticleSystem (new Vector2 (200, 200), Constants.ViewLayer.Layer3, explosion1Texture);
-			//AddChildView (explosions);
-
 		}
 
 		private void HandlePauseTap(View pauseButton)
@@ -89,6 +85,8 @@ namespace TestSunfishGame.Screens
 		{
 			return new Color ((float)RandomGenerator.NextDouble (), (float)RandomGenerator.NextDouble (), (float)RandomGenerator.NextDouble ());
 		}
+
+		#endregion
 
 	}
 }
