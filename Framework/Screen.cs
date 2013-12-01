@@ -9,6 +9,8 @@ namespace Sunfish
 	public abstract class Screen
 	{
 
+		#region "Properties"
+
 		public SunfishGame CurrentGame;
 
 		public Color BackgroundColor;
@@ -25,11 +27,11 @@ namespace Sunfish
 
 		public OnTransitionedOutDelegate OnTransitionedOut;
 
-		//private Rectangle SavedScissorRectangle;
-
-		//private RasterizerState SavedRasterizedState;
-
 		private Texture2D BackgroundTexture;
+
+		#endregion
+
+		#region "Constructors"
 
 		protected Screen (SunfishGame currentGame) :
 		this(currentGame, DefaultBackgroundColor)
@@ -56,6 +58,8 @@ namespace Sunfish
 				BackgroundTexture = LoadTexture (backgroundTextureName);
 			}
 		}
+
+		#endregion
 
 		public abstract void PopulateScreenViews ();
 
@@ -104,6 +108,13 @@ namespace Sunfish
 			}
 		}
 
+		public int PixelsWithDensity(int pixels)
+		{
+			return SunfishGame.PixelsWithDensity (pixels);
+		}
+
+		#region "Asset Loading"
+
 		public Texture2D LoadTexture (string imageFileNameWithoutExtension)
 		{
 			if (SunfishGame.IsiPad ()) {
@@ -132,6 +143,16 @@ namespace Sunfish
 			}
 		}
 
+		public void UnloadContent ()
+		{
+			ScreenContent.Unload ();
+			ScreenContent.Dispose ();
+		}
+
+		#endregion
+
+		#region "Transitions"
+
 		public void TransitionIn ()
 		{
 			Views.Overlay overlay = Views.Overlay.CreateOpaque (this);
@@ -154,16 +175,7 @@ namespace Sunfish
 			}
 		}
 
-		public void UnloadContent ()
-		{
-			ScreenContent.Unload ();
-			ScreenContent.Dispose ();
-		}
-
-		public int PixelsWithDensity(int pixels)
-		{
-			return SunfishGame.PixelsWithDensity (pixels);
-		}
+		#endregion
 
 	}
 }
