@@ -8,8 +8,6 @@ using Microsoft.Xna.Framework.Storage;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Media;
 
-using MonoTouch.UIKit; // for hiding the status bar in iOS
-
 namespace Sunfish
 {
 	public abstract class SunfishGame : Game
@@ -74,8 +72,6 @@ namespace Sunfish
 			TouchPanel.EnabledGestures = GestureType.Pinch | GestureType.FreeDrag | GestureType.Tap | GestureType.DoubleTap | GestureType.Hold;
 			ActiveSpriteBatch = new SpriteBatch (Graphics.GraphicsDevice);
 			SetActiveScreen (GetHomeScreen ());
-
-			UIApplication.SharedApplication.SetStatusBarHidden (true, true);
 
 		}
 
