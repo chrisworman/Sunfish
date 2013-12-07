@@ -117,6 +117,7 @@
     <Folder Include="Screens\" />
     <Folder Include="Content\Images\iPadRetina\" />
     <Folder Include="Content\Fonts\" />
+    <Folder Include="Content\Audio\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\Images\iPadRetina\GearLarge.png" />
@@ -137,5 +138,7 @@
     <Content Include="Content\Images\iPad\Explosion2.png" />
     <Content Include="Content\Images\iPad\DrawingPosition.png" />
     <Content Include="Content\Images\iPad\Position.png" />
+    <Content Include="Content\Audio\Explosion1.wav" />
+    <Content Include="Content\Audio\Explosion2.wav" />
   </ItemGroup>
 </Project>

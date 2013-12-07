@@ -1,10 +1,13 @@
 using System;
+
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+
 using Sunfish;
 using Sunfish.Views;
 using Sunfish.Views.Partitioning;
 using Sunfish.Views.Effects;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
+using Sunfish.Utilities;
 
 namespace TestSunfishGame.Screens
 {
@@ -29,15 +32,33 @@ namespace TestSunfishGame.Screens
 
 		private void PopulateSpriteAnimationTestScreenViews()
 		{
+			BackgroundColor = Color.Black;
 
+			Texture2D buttonTexture = LoadTexture ("Grid");
+			Sprite button = new Sprite (buttonTexture, new Vector2(100));
+			button.EnableTapGesture (CreateRandomExplosion);
+			AddChildView (button);
+
+		}
+
+		private void CreateRandomExplosion(View viewThatWasTapped)
+		{
 			Rectangle frameRectangle = new Rectangle (0, 0, 134, 134);
-			SpriteFraming framing = new SpriteFraming (frameRectangle, 12, 30d);
-			framing.Loops = 5;
+			SpriteFraming framing = new SpriteFraming (frameRectangle, 12, 25d);
+			framing.Loops = 1;
 			framing.LoopingFinishedBehavior = Constants.SpriteFramingLoopingFinishedBehavior.HideSprite;
+
 			Texture2D explosionTexture = LoadTexture ("LockExplosion");
 			Sprite explosion = new Sprite (explosionTexture, framing);
+			explosion.Position = Randomization.NextVector2 (new Vector2 (200, 200), new Vector2 (900, 500));
 
 			AddChildView (explosion);
+
+			if (Randomization.NextBool ()) {
+				PlaySoundEffect ("Explosion1");
+			} else {
+				PlaySoundEffect ("Explosion2");
+			}
 
 		}
 
