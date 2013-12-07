@@ -22,8 +22,26 @@ namespace TestSunfishGame.Screens
 
 		public override void PopulateScreenViews ()
 		{
+			PopulateSpriteAnimationTestScreenViews ();
+		}
+
+		#region "Sprite Animation Test"
+
+		private void PopulateSpriteAnimationTestScreenViews()
+		{
+
+			Rectangle frameRectangle = new Rectangle (0, 0, 134, 134);
+			SpriteFraming framing = new SpriteFraming (frameRectangle, 12, 30d);
+			framing.Loops = 5;
+			framing.LoopingFinishedBehavior = Constants.SpriteFramingLoopingFinishedBehavior.HideSprite;
+			Texture2D explosionTexture = LoadTexture ("LockExplosion");
+			Sprite explosion = new Sprite (explosionTexture, framing);
+
+			AddChildView (explosion);
 
 		}
+
+		#endregion
 
 		#region "Paradox Test"
 

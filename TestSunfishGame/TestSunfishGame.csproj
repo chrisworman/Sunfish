@@ -92,9 +92,9 @@
     <None Include="Info.plist" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Default.png" />
     <BundleResource Include="GameThumbnail.png" />
     <BundleResource Include="Content\logo.png" />
+    <BundleResource Include="Content\Images\iPad\LockExplosion.png" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
