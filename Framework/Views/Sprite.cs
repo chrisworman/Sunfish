@@ -57,6 +57,7 @@ namespace Sunfish.Views
 		{
 			Texture = texture;
 			Framing = framing;
+			Framing.SpriteForFraming = this;
 		}
 
 		public override void Draw (GameTime gameTime, GraphicsDeviceManager graphics)

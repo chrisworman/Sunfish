@@ -34,6 +34,15 @@ namespace Sunfish
 
 		public const double ViewEffectInfiniteLength = -1d;
 
+		public const int SpriteFramingLoopInfinte = -1;
+
+		public enum SpriteFramingLoopingFinishedBehavior
+		{
+			FirstFrameRectangle = 0 ,
+			LastFrameRectangle = 1 ,
+			HideSprite = 2
+		}
+
 	}
 }
 
