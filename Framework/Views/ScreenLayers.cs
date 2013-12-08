@@ -37,6 +37,12 @@ namespace Sunfish.Views
 			Count = 0;
 		}
 
+		public void RemoveView(View viewToRemove)
+		{
+			List<View> viewLayer = Layers [(int)viewToRemove.Layer];
+			viewLayer.Remove (viewToRemove);
+		}
+
 		public void Update (GameTime gameTime)
 		{
 			HandleGestures ();

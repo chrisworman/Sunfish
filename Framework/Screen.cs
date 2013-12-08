@@ -1,8 +1,11 @@
 using System;
+using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Audio;
+
+using Sunfish.Views;
 
 namespace Sunfish
 {
@@ -105,6 +108,18 @@ namespace Sunfish
 				Texture2D topBarBackground = LoadTexture ("TopBarBackground");
 				TopBar = new Views.Container (topBarBackground, Constants.ViewContainerLayout.FloatLeft);
 				ChildViews.Add (TopBar);
+			}
+		}
+
+		public void RemoveAllChildren()
+		{
+			ChildViews.Clear ();
+		}
+
+		public void RemoveChildren(List<View> viewsToRemove)
+		{
+			foreach (View viewToRemove in viewsToRemove) {
+				ChildViews.RemoveView (viewToRemove);
 			}
 		}
 
