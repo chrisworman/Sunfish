@@ -1,23 +1,9 @@
 ﻿<Properties GitUserInfo="UsingGIT">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.IPad.7.0" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="../Framework/Views/SceneryScroller.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhone" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneDeviceTarget.iPad Mini" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="../Framework/Screen.cs">
     <Files>
-      <File FileName="../Framework/Views/SceneryScroller.cs" Line="17" Column="26" />
-      <File FileName="../Framework/Screen.cs" Line="154" Column="3" />
-      <File FileName="../Framework/SunfishGame.cs" Line="1" Column="1" />
+      <File FileName="../Framework/Screen.cs" Line="5" Column="37" />
     </Files>
-    <Pads>
-      <Pad Id="ProjectPad">
-        <State expanded="True">
-          <Node name="Sunfish" expanded="True">
-            <Node name="Views" expanded="True">
-              <Node name="SceneryScroller.cs" selected="True" />
-            </Node>
-          </Node>
-          <Node name="TestSunfishGame" expanded="True" />
-        </State>
-      </Pad>
-    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />

@@ -43,14 +43,34 @@ namespace TestSunfishGame.Screens
 
 		private void CreateRandomExplosion(View viewThatWasTapped)
 		{
-			Rectangle frameRectangle = new Rectangle (0, 0, 134, 134);
-			SpriteFraming framing = new SpriteFraming (frameRectangle, 12, 25d);
+
+			int explosionNumber = Randomization.NextInt (1, 4);
+
+			Rectangle frameRectangle = Rectangle.Empty;
+			SpriteFraming framing = null;
+
+			switch (explosionNumber) {
+			case 1:
+				frameRectangle = new Rectangle (0, 0, 134, 134);
+				framing = new SpriteFraming (frameRectangle, 12, 25d);
+				break;
+			case 2:
+				frameRectangle = new Rectangle (0, 0, 128, 128);
+				framing = new SpriteFraming (frameRectangle, 10, 25d);
+				break;
+			case 3:
+				frameRectangle = new Rectangle (0, 0, 120, 120);
+				framing = new SpriteFraming (frameRectangle, 10, 25d);
+				break;
+			}
+
+
 			framing.Loops = 1;
 			framing.LoopingFinishedBehavior = Constants.SpriteFramingLoopingFinishedBehavior.HideSprite;
 
-			Texture2D explosionTexture = LoadTexture ("LockExplosion");
+			Texture2D explosionTexture = LoadTexture ("Explosion" + explosionNumber.ToString());
 			Sprite explosion = new Sprite (explosionTexture, framing);
-			explosion.Position = Randomization.NextVector2 (new Vector2 (200, 200), new Vector2 (900, 500));
+			explosion.Position = GetRandomExplosionPosition ();
 
 			AddChildView (explosion);
 
@@ -60,6 +80,11 @@ namespace TestSunfishGame.Screens
 				PlaySoundEffect ("Explosion2");
 			}
 
+		}
+
+		private Vector2 GetRandomExplosionPosition()
+		{
+			return Randomization.NextVector2 (new Vector2 (0, 0), new Vector2 (900, 500));
 		}
 
 		#endregion

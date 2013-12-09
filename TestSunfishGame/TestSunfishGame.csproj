@@ -94,7 +94,6 @@
   <ItemGroup>
     <BundleResource Include="GameThumbnail.png" />
     <BundleResource Include="Content\logo.png" />
-    <BundleResource Include="Content\Images\iPad\LockExplosion.png" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -134,11 +133,12 @@
     <Content Include="Content\Images\iPad\PopupBackground.png" />
     <Content Include="Content\Fonts\Helvetica40.png" />
     <Content Include="Content\Fonts\Helvetica40.txt" />
-    <Content Include="Content\Images\iPad\Explosion1.png" />
-    <Content Include="Content\Images\iPad\Explosion2.png" />
     <Content Include="Content\Images\iPad\DrawingPosition.png" />
     <Content Include="Content\Images\iPad\Position.png" />
     <Content Include="Content\Audio\Explosion1.wav" />
     <Content Include="Content\Audio\Explosion2.wav" />
+    <Content Include="Content\Images\iPad\Explosion1.png" />
+    <Content Include="Content\Images\iPad\Explosion2.png" />
+    <Content Include="Content\Images\iPad\Explosion3.png" />
   </ItemGroup>
 </Project>
