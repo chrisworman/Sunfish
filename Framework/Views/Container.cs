@@ -79,8 +79,6 @@ namespace Sunfish.Views
 			}
 		}
 
-
-
 		#endregion
 
 		public override void Draw (GameTime gameTime, GraphicsDeviceManager graphics)

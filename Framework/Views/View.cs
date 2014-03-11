@@ -191,8 +191,12 @@ namespace Sunfish.Views
 		public virtual void Update (GameTime gameTime)
 		{
 			// Update each effect and remove effects that are now complete
-			Effects.ForEach (effect => effect.Update (gameTime, this));
-			Effects.RemoveAll (effect => effect.IsComplete ());
+			Effects.ForEach (delegate(Sunfish.Views.Effects.Effect effect) {
+				if (effect != null)  {
+					effect.Update (gameTime, this);
+				}
+			});
+			Effects.RemoveAll (effect => effect == null || effect.IsComplete ());
 
 			// Apply physics
 			if (Visible) {

@@ -37,13 +37,16 @@ namespace Sunfish
 			}
 
 			set {
-				_MusicOn = value;
-				if (GameSong != null) {
-					if (_MusicOn && (GameSong.State == SoundState.Paused || GameSong.State == SoundState.Stopped)) {
-						GameSong.Resume ();
-					} else if (!_MusicOn && GameSong.State == SoundState.Playing) {
-						GameSong.Pause ();
+				try {
+					_MusicOn = value;
+					if (GameSong != null) {
+						if (_MusicOn && (GameSong.State == SoundState.Paused || GameSong.State == SoundState.Stopped)) {
+							GameSong.Resume ();
+						} else if (!_MusicOn && GameSong.State == SoundState.Playing) {
+							GameSong.Pause ();
+						}
 					}
+				} catch {
 				}
 			}
 
@@ -84,10 +87,13 @@ namespace Sunfish
 
 		public void SetAndStartGameSong(string audioFileNameWithoutExtension, float volume = 1.0f)
 		{
-			GameSong = Content.Load<SoundEffect> (Constants.AudioContentFolder + audioFileNameWithoutExtension).CreateInstance ();
-			GameSong.Volume = volume;
-			GameSong.IsLooped = true;
-			MusicOn = true;
+			try {
+				GameSong = Content.Load<SoundEffect> (Constants.AudioContentFolder + audioFileNameWithoutExtension).CreateInstance ();
+				GameSong.Volume = volume;
+				GameSong.IsLooped = true;
+				MusicOn = true;
+			} catch {
+			}
 		}
 
 		#region Abstract Methods

@@ -17,6 +17,15 @@ namespace Sunfish.Utilities
 
 		#endregion
 
+		#region "Int"
+
+		public static int NextInt(int minValue, int maxValue)
+		{
+			return RandomGenerator.Next(minValue, maxValue);
+		}
+
+		#endregion
+
 		#region "Float"
 
 		public static float NextFloat()

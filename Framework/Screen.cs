@@ -151,10 +151,13 @@ namespace Sunfish
 
 		public void PlaySoundEffect (string audioFileNameWithoutExtension, float volume = 1.0f)
 		{
-			if (SunfishGame.SoundEffectsOn) {
-				SoundEffectInstance soundEffectToPlay = LoadSoundEffect (audioFileNameWithoutExtension);
-				soundEffectToPlay.Volume = volume;
-				soundEffectToPlay.Play ();
+			try {
+				if (SunfishGame.SoundEffectsOn) {
+					SoundEffectInstance soundEffectToPlay = LoadSoundEffect (audioFileNameWithoutExtension);
+					soundEffectToPlay.Volume = volume;
+					soundEffectToPlay.Play ();
+				}
+			} catch {
 			}
 		}
 

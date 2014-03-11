@@ -83,8 +83,12 @@ namespace Sunfish.Views
 		{
 			for (int layer = 0; layer < Layers.Length; layer++) {
 				List<View> viewLayer = Layers [layer];
-				foreach (View view in viewLayer) {
-					view.Update (gameTime);
+				if (viewLayer != null) {
+					foreach (View view in viewLayer) {
+						if (view != null) {
+							view.Update (gameTime);
+						}
+					}
 				}
 			}
 		}

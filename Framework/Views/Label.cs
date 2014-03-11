@@ -66,7 +66,11 @@ namespace Sunfish.Views
 			Vector2 characterPosition = Position;
 			for (int i=0; i < TextCharacterFrames.Length; i ++) {
 				Rectangle textCharacterFrame = TextCharacterFrames [i];
-				SunfishGame.ActiveSpriteBatch.Draw (LabelFont.FontTexture, characterPosition, textCharacterFrame, TextColor);  
+				try {
+					SunfishGame.ActiveSpriteBatch.Draw (LabelFont.FontTexture, characterPosition, textCharacterFrame, TextColor);  
+				} catch (Exception ex) {
+					Console.Write (ex.ToString ());
+				}
 				characterPosition.X += textCharacterFrame.Width;
 			}
 		}
